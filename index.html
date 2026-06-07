@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Boy Clássico - Emulador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gameboy-container">
+        <div class="gameboy">
+            <!-- Tela LCD -->
+            <div class="screen">
+                <canvas id="gameCanvas" width="160" height="144"></canvas>
+                <div class="screen-label">GAME BOY</div>
+            </div>
+
+            <!-- Controles -->
+            <div class="controls">
+                <!-- D-Pad -->
+                <div class="dpad">
+                    <button class="dpad-btn up" data-key="ArrowUp">▲</button>
+                    <div class="dpad-middle">
+                        <button class="dpad-btn left" data-key="ArrowLeft">◀</button>
+                        <button class="dpad-btn right" data-key="ArrowRight">▶</button>
+                    </div>
+                    <button class="dpad-btn down" data-key="ArrowDown">▼</button>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="action-buttons">
+                    <button class="btn-a" data-key="z">A</button>
+                    <button class="btn-b" data-key="x">B</button>
+                </div>
+
+                <!-- Botões Start/Select -->
+                <div class="start-select">
+                    <button class="btn-select" data-key="Backspace">SELECT</button>
+                    <button class="btn-start" data-key="Enter">START</button>
+                </div>
+            </div>
+
+            <!-- Indicador de Poder -->
+            <div class="power-indicator">
+                <div class="power-light"></div>
+                <span>ON</span>
+            </div>
+        </div>
+
+        <!-- Seletor de Jogo -->
+        <div class="game-selector">
+            <h2>📦 Seleção de Jogo</h2>
+            <div class="game-list">
+                <button class="game-btn active" data-game="tetris">
+                    <span class="game-icon">🧱</span>
+                    <span class="game-name">Tetris</span>
+                </button>
+                <button class="game-btn" data-game="snake">
+                    <span class="game-icon">🐍</span>
+                    <span class="game-name">Snake</span>
+                </button>
+                <button class="game-btn" data-game="memory">
+                    <span class="game-icon">🧠</span>
+                    <span class="game-name">Memory</span>
+                </button>
+                <button class="game-btn" data-game="flappy">
+                    <span class="game-icon">🐦</span>
+                    <span class="game-name">Flappy Bird</span>
+                </button>
+                <button class="game-btn" data-game="breakout">
+                    <span class="game-icon">🎯</span>
+                    <span class="game-name">Breakout</span>
+                </button>
+            </div>
+            <div class="game-info">
+                <p id="currentGame">Carregado: <strong>Tetris</strong></p>
+                <p id="gameScore">Pontuação: <strong>0</strong></p>
+                <button id="resetBtn" class="reset-btn">Reiniciar Jogo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="tetris.js"></script>
+    <script src="snake.js"></script>
+    <script src="memory.js"></script>
+    <script src="flappy.js"></script>
+    <script src="breakout.js"></script>
+    <script src="emulator.js"></script>
+</body>
+</html>
